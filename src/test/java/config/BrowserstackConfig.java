@@ -22,15 +22,15 @@ public interface BrowserstackConfig extends Config {
     @Key("browserstack.app")
     String app();
 
-    @Key("device.android")
+    @Key("android.device")
     String androidDevice();
 
-    @Key("os.android")
+    @Key("android.version")
     String androidVersion();
 
-    @Key("device.ios")
+    @Key("ios.device")
     String iosDevice();
 
-    @Key("os.ios")
+    @Key("ios.version")
     String iosVersion();
 }
