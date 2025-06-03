@@ -18,7 +18,7 @@ public class AndroidArticleTest extends TestBase {
     @Test
     void searchJavaTest() {
         step("Type search", () -> {
-            $(accessibilityId("Text Button")).click();
+            $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Java");
         });
 
