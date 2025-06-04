@@ -35,14 +35,14 @@ public class BrowserstackDriver implements WebDriverProvider {
             caps.setCapability("os_version", config.androidVersion());
             caps.setCapability("app", config.app());
         }
-        caps.setCapability("project", "First Java Project");
-        caps.setCapability("build", "browserstack-build-1");
-        caps.setCapability("name", "first_test");
+        caps.setCapability("project", "Java Project");
+        caps.setCapability("build", "browserstack-build");
+        caps.setCapability("name", "test");
 
         try {
             return new RemoteWebDriver(new URL(config.url()), caps);
         } catch (MalformedURLException e) {
-            throw new RuntimeException("Invalid Browserstack URL", e);
+            throw new RuntimeException(e);
         }
     }
 }
