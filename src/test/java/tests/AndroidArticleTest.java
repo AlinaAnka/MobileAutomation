@@ -19,11 +19,11 @@ public class AndroidArticleTest extends TestBase {
     void searchJavaTest() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
-            $(id("search_src_text")).sendKeys("Java");
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Java");
         });
 
         step("Verify content found", () ->
-                $$(id("id/page_list_item_title"))
+                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
                         .shouldHave(sizeGreaterThan(0)));
     }
 }
