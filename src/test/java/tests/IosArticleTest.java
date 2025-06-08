@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -16,6 +17,7 @@ public class IosArticleTest extends TestBase {
         System.setProperty("platform", "ios");
     }
 
+    @Tag("ios_browserstack")
     @Test
     void searchJavaTest() {
         step("Type search", () -> {

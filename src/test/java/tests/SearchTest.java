@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -12,11 +13,11 @@ import static io.qameta.allure.Allure.step;
 
 public class SearchTest extends TestBase {
 
+    @Tag("android_browserstack")
     @BeforeAll
     static void setup() {
         System.setProperty("platform", "android");
     }
-
     @Test
     void searchGoogleTest() {
 

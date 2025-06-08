@@ -38,13 +38,12 @@ dependencies {
             'io.rest-assured:rest-assured:' + restAssuredVersion,
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.aeonbits.owner:owner:$ownerVersion"
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "commons-io:commons-io:2.11.0"
     )
 }
 
 tasks.withType(Test) {
-
-    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -53,4 +52,27 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+tasks.register('android_emulation', Test) {
+    useJUnitPlatform {
+        includeTags 'emulation'
+    }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'local'
+}
+
+tasks.register('android_browserstack', Test) {
+    useJUnitPlatform {
+        includeTags 'android_browserstack'
+    }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'browserstack'
+}
+
+tasks.register('ios_browserstack', Test) {
+    useJUnitPlatform {
+        includeTags 'ios_browserstack'
+    }
+    systemProperty 'platform', 'ios'
+    systemProperty 'deviceHost', 'browserstack'
 }
