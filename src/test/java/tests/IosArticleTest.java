@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 
+@Tag("ios_browserstack")
 public class IosArticleTest extends TestBase {
 
     @BeforeAll
@@ -17,7 +18,6 @@ public class IosArticleTest extends TestBase {
         System.setProperty("platform", "ios");
     }
 
-    @Tag("ios_browserstack")
     @Test
     void searchJavaTest() {
         step("Type search", () -> {

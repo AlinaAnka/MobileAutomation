@@ -38,8 +38,7 @@ dependencies {
             'io.rest-assured:rest-assured:' + restAssuredVersion,
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.aeonbits.owner:owner:$ownerVersion",
-            "commons-io:commons-io:2.11.0"
+            "org.aeonbits.owner:owner:$ownerVersion"
     )
 }
 
@@ -55,7 +54,7 @@ tasks.withType(Test) {
 }
 tasks.register('android_emulation', Test) {
     useJUnitPlatform {
-        includeTags 'emulation'
+        includeTags 'android_emulation'
     }
     systemProperty 'platform', 'android'
     systemProperty 'deviceHost', 'local'

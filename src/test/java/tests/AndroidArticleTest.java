@@ -9,9 +9,14 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
+@Tag("android_browserstack")
 public class AndroidArticleTest extends TestBase {
 
-//    @Tag("android_browserstack")
+    @BeforeAll
+    static void setup() {
+        System.setProperty("platform", "android");
+    }
+
     @Test
     void searchJavaTest() {
         step("Type search", () -> {

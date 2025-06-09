@@ -11,13 +11,14 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
+@Tag("android_browserstack")
 public class SearchTest extends TestBase {
 
-    @Tag("android_browserstack")
     @BeforeAll
     static void setup() {
         System.setProperty("platform", "android");
     }
+
     @Test
     void searchGoogleTest() {
 
