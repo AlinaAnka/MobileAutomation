@@ -43,8 +43,6 @@ dependencies {
 }
 
 tasks.withType(Test) {
-
-    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -53,4 +51,27 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+tasks.register('android_emulation', Test) {
+    useJUnitPlatform {
+        includeTags 'android_emulation'
+    }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'local'
+}
+
+tasks.register('android_browserstack', Test) {
+    useJUnitPlatform {
+        includeTags 'android_browserstack'
+    }
+    systemProperty 'platform', 'android'
+    systemProperty 'deviceHost', 'browserstack'
+}
+
+tasks.register('ios_browserstack', Test) {
+    useJUnitPlatform {
+        includeTags 'ios_browserstack'
+    }
+    systemProperty 'platform', 'ios'
+    systemProperty 'deviceHost', 'browserstack'
 }
